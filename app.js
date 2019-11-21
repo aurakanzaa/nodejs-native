@@ -1,6 +1,17 @@
 let http = require("http");
 let url = require("url");
 let fs = require('fs');
+var path = require('path');
+
+const mimetypes = {
+    'html': 'text/html',
+    'css': 'text/css',
+    'js': 'text/javascript',
+    'png': 'image/png',
+    'jpeg': 'image/jpeg',
+    'jpg': 'image/jpg'
+};
+
 
 const server = http.createServer(function(req, res) {
 
