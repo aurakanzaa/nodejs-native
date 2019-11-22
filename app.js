@@ -1,16 +1,9 @@
 let http = require("http");
 let url = require("url");
 let fs = require('fs');
-var path = require('path');
+let path = require('path');
+const db = require("./sqlite-config");
 
-const mimetypes = {
-    'html': 'text/html',
-    'css': 'text/css',
-    'js': 'text/javascript',
-    'png': 'image/png',
-    'jpeg': 'image/jpeg',
-    'jpg': 'image/jpg'
-};
 
 
 const server = http.createServer(function(req, res) {
@@ -49,14 +42,23 @@ const server = http.createServer(function(req, res) {
     //     route(data, res);
     // });
 
+    // res.setHeader('Content-Type', 'text/html');
+    // res.setHeader('Content-Type', 'text/css');
+    // res.setHeader('X-Foo', 'bar');
+    // res.writeHead(200, {
+    //     'Content-Type': 'text/html',
+    //     // 'Content-Type': 'text/css',
+    // });
     
-    res.writeHead(200, {
-        'Content-Type': 'text/html'
-    });
+
     var url = req.url; 
       
     if(url ==='/') { 
-        fs.readFile('./index.html', null, function (error, data) {
+        
+        res.writeHead(200, {
+            'Content-Type': 'text/html',
+        });
+        fs.readFile('./views/main.html', null, function (error, data) {
             if (error) {
                 res.writeHead(404);
                 res.write('Whoops! File not found!');
@@ -66,9 +68,31 @@ const server = http.createServer(function(req, res) {
             res.end();
         }); 
     } 
-    else if(url ==='/contact') { 
-        res.write(' Welcome to contact us page');  
-        res.end();  
+    else if(url ==='/insert') { 
+        res.writeHead(200, {
+            'Content-Type': 'text/html',
+            
+        });
+        fs.readFile('./views/insert.html', null, function (error, data) {
+            if (error) {
+                res.writeHead(404);
+                res.write('Whoops! File not found!');
+            } else {
+                res.write(data);
+            }
+            res.end();
+        });   
+    } 
+    else if(url ==='/edit') { 
+        fs.readFile('./views/index.html', null, function (error, data) {
+            if (error) {
+                res.writeHead(404);
+                res.write('Whoops! File not found!');
+            } else {
+                res.write(data);
+            }
+            res.end();
+        });    
     } 
     else { 
         res.write('Hello World!');  
@@ -84,62 +108,3 @@ server.listen(1234, function() {
 });
 
 
-//define functions for the different Routes
-//This object and the functions could be defined in another file that we import
-//Each route has a function that takes two parameters
-//data: the info about the request
-//callback: the function to call to send the response
-// let routes = {
-//   kenny: function(data, res) {
-//     // this function called if the path is 'kenny'
-//     let payload = {
-//       name: "Kenny"
-//     };
-//     let payloadStr = JSON.stringify(payload);
-//     res.setHeader("Content-Type", "application/json");
-//     res.setHeader("Access-Control-Allow-Origin", "*");
-//     res.writeHead(200);
-//     res.write(payloadStr);
-//     res.end("\n");
-//   },
-//   cartman: function(data, res) {
-//     // this function called if the path is 'cartman'
-//     let payload = {
-//       name: "Cartman"
-//     };
-//     let payloadStr = JSON.stringify(payload);
-//     res.setHeader("Content-Type", "application/json");
-//     res.setHeader("Access-Control-Allow-Origin", "*");
-//     res.writeHead(200);
-//     res.write(payloadStr);
-//     res.end("\n");
-//   },
-//   "kenny/is/mysterion": function(data, res) {
-//     //this function called if path is 'kenny/is/mysterion'
-//     let payload = {
-//       name: "Mysterion",
-//       enemy: "The Coon",
-//       today: +new Date()
-//     };
-//     let payloadStr = JSON.stringify(payload);
-//     res.setHeader("Content-Type", "application/json");
-//     res.setHeader("Access-Control-Allow-Origin", "*");
-//     res.writeHead(200);
-//     res.write(payloadStr);
-//     res.end("\n");
-//   },
-//   notFound: function(data, res) {
-//     //this one gets called if no route matches
-//     let payload = {
-//       message: "File Not Found",
-//       code: 404
-//     };
-//     let payloadStr = JSON.stringify(payload);
-//     res.setHeader("Content-Type", "application/json");
-//     res.setHeader("Access-Control-Allow-Origin", "*");
-//     res.writeHead(404);
-
-//     res.write(payloadStr);
-//     res.end("\n");
-//   }
-// };

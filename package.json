@@ -9,6 +9,9 @@
   "author": "ara",
   "license": "ISC",
   "dependencies": {
-    "nodemon": "^2.0.0"
+    "m": "^1.5.6",
+    "mime": "^2.4.4",
+    "nodemon": "^2.0.0",
+    "sqlite3": "^4.1.0"
   }
 }

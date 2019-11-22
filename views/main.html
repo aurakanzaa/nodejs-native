@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Title Page</title>
+        <link rel="stylesheet" href="./public/css/main.css">
+        <link rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Bootstrap CSS -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Bootstrap JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <style>
+         * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+        }
+
+        table {
+            display: grid;
+            border-collapse: collapse;
+            min-width: 100%;
+            grid-template-columns: 
+                minmax(150px, 1fr)
+                minmax(150px, 2fr)
+                minmax(150px, 2fr)
+                minmax(150px, 1.5fr)
+                minmax(150px, 3.33fr)
+                minmax(150px, 2fr);
+        }
+
+        thead,
+        tbody,
+        tr {
+            display: contents;
+        }
+
+        th,
+        td {
+            padding: 15px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        th {
+            position: sticky;
+            top: 0;
+            background: #0c2233;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.3rem;
+            color: #fce38a;
+        }
+
+        th:last-child {
+            border: 0;
+        }
+
+        td {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            color: #808080;
+        }
+
+        tr:nth-child(even) td {
+            background: #f8f6ff;
+        } 
+        </style>
+    </head>
+    <body>
+        <div class="container-fluid">
+
+            <div style="margin-top:1%;margin-bottom:1%">
+                <a href="/insert" class="btn btn-default"><i class="fa fa-plus" aria-hidden="true"></i> Tambah Data</a>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Name</th>
+                        <th>Job</th>
+                        <th>Age</th>
+                        <th>Email</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% musicList.forEach(function(item){ %>
+                    <tr>
+                        <td><%= item.id %></td>
+                        <td><%= item.name %></td>
+                        <td><%= item.job %></td>
+                        <td><%= item.age %></td>
+                        <td><%= item.email %></td>
+                        <td>
+                            <a href="/edit<%= item.id %>" class="btn btn-info"><i class="fa fa-edit"></i></a>
+                            <a href="javascript:remove('/remove/<%= item.id %>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                        </td>
+                    </tr>
+                    <%}); %>
+                </tbody>
+            </table>
+        </div>
+
+        
+    </body>
+</html>
+<script>
+function remove(url) {
+  if (!confirm('Really to delete？')) {
+    return;
+  }
+  $.ajax({
+    url: url,
+    type: 'DELETE',
+    success: function (data) {
+      var jsonObj = JSON.parse(data);
+        if (jsonObj.code == '1') {
+          window.location.reload('/');
+        } else if (jsonObj.code == '0') {
+          alert('delete fail');
+        }
+    }
+  });
+}
+</script>
