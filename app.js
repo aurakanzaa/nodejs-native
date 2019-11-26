@@ -1,6 +1,7 @@
-let http = require("http");
-let fs = require("fs");
-let _ = require("underscore");
+const http = require("http");
+const fs = require("fs");
+const _ = require("underscore");
+const db = require("./sqlite-config");
 
 const server = http.createServer((req, res) => {
     let url = req.url;
@@ -39,11 +40,28 @@ const server = http.createServer((req, res) => {
         res.writeHead(200, {
             "Content-Type": "text/html"
         });
-        fs.readFile("./views/judges.html", null, (error, data) => {
+        fs.readFile("./views/judges.html", "utf-8", (error, data) => {
             if (error) {
                 res.writeHead(404);
                 res.write("Whoops! File not found!");
             } else {
+                db.all("SELECT * FROM judges_list", (err, rows) => {
+                    let compiled = _.template(data)
+                    let htmlToStr = compiled({
+                        rows
+                    })
+                    res.end(htmlToStr)
+                });
+            }
+        });
+    }
+    else if (url === "/insert") {
+        fs.readFile("./views/insert.html", "utf-8", (error, data) => {
+            if (error) {
+                res.writeHead(404);
+                res.write("Whoops! File not found!");
+            } else {
+                
                 res.write(data);
             }
             res.end();

@@ -39,7 +39,7 @@
                   <th>Email</th>
                   <th>Option</th>
                 </tr>
-                <% dataJson.forEach((item) => { %>
+                <% rows.forEach((item) => { %>
                     <tr>
                         <td><%= item.no %></td>
                         <td><%= item.code %></td>
@@ -48,8 +48,8 @@
                         <td><%= item.telp %></td>
                         <td><%= item.email %></td>
                         <td>
-                            <a href="/edit/<%= item.id %>"><i class="fa fa-edit"></i></a>
-                            <a href="/remove/<%= item.id %>"><i class="fa fa-trash"></i></a>
+                            <a href="/edit/<%= item.no %>"><i class="fa fa-edit"></i>Edit</a>
+                            <a href="/remove/<%= item.no %>"><i class="fa fa-trash">Delete</i></a>
                         </td>
                     </tr>
                     <%} ); %>
