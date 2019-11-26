@@ -1,4 +1,3 @@
-// Handling static file servers
 const fs = require('fs');
 const path = require('path');
 const mime = require('mime');
@@ -8,9 +7,9 @@ const staticServer = function (res, pathname) {
     if (err) {
       return res.end(err.message);
     }
-    // Read the file, parse the json, and then find the corresponding mime Content-Type according to the corresponding extension.
+    // 读取文件，解析json，然后根据对应的扩展名，找到对应的mime Content-Type
     let mimeType = mime.getType(pathname);
-    // Processing text
+    // 处理 text
     if (mimeType.startsWith('text/')) {
         mimeType += '; charset=utf-8';
     }

@@ -1,0 +1,697 @@
+[{
+        "no": 1,
+        "code": "CIN",
+        "nama": "Agus Hardiman",
+        "instansi": "Musiktek",
+        "telp": 62818422808,
+        "email": "agushardiman@musiktek.com"
+    },
+    {
+        "no": 2,
+        "code": "CIN",
+        "nama": "Adi Panuntun",
+        "instansi": "Sembilan Matahari",
+        "telp": 628112212882,
+        "email": "adipanuntun@sembilanmatahari.com"
+    },
+    {
+        "no": 3,
+        "code": "CIN",
+        "nama": "Yoris Sebastian",
+        "instansi": "",
+        "telp": 628128693917,
+        "email": "yoris@omgcreativeconsulting.com"
+    },
+    {
+        "no": 4,
+        "code": "CIN",
+        "nama": "Abdee Negara",
+        "instansi": "",
+        "telp": 9999,
+        "email": "negara1@slank.com"
+    },
+    {
+        "no": 5,
+        "code": "CIN",
+        "nama": "Razak Satari",
+        "instansi": "SCTV",
+        "telp": 9999,
+        "email": "razak.satari@sctv.co.id"
+    },
+    {
+        "no": 6,
+        "code": "DEG",
+        "nama": "Yudi Soeryo",
+        "instansi": "A BOX",
+        "telp": 62811190603,
+        "email": "yudi@inix.com"
+    },
+    {
+        "no": 7,
+        "code": "DEG",
+        "nama": "Wong Lokdien",
+        "instansi": "",
+        "telp": 6817191581,
+        "email": "dienw@yahoo.com"
+    },
+    {
+        "no": 8,
+        "code": "DEG",
+        "nama": "Ramon Armando",
+        "instansi": "Mandiri",
+        "telp": 628159128130,
+        "email": "ramon.armando@bankmandiri.co.id"
+    },
+    {
+        "no": 9,
+        "code": "DEG",
+        "nama": "Adhit Nuswandana",
+        "instansi": "Majalah Hotgames",
+        "telp": 9999,
+        "email": "adhit@gramedia-majalah.com"
+    },
+    {
+        "no": 10,
+        "code": "DEG",
+        "nama": "Andi Suryanto",
+        "instansi": "Lyto",
+        "telp": 628161471009,
+        "email": "andi@lyto.net"
+    },
+    {
+        "no": 11,
+        "code": "DEA",
+        "nama": "Ardian Elkana",
+        "instansi": "Ainaki",
+        "telp": 62811860530,
+        "email": "ardian@avigra.com"
+    },
+    {
+        "no": 12,
+        "code": "DEA",
+        "nama": "Yogie Hendraswara",
+        "instansi": "RED",
+        "telp": 6281519128383,
+        "email": "yogisprite@gmail.com"
+    },
+    {
+        "no": 13,
+        "code": "DEA",
+        "nama": "Daniel Harjanto",
+        "instansi": "Infinite Studio",
+        "telp": 62811183369,
+        "email": "daniel@frameworks.com.sg"
+    },
+    {
+        "no": 14,
+        "code": "DEA",
+        "nama": "Edi Budiarto",
+        "instansi": "Pertamina",
+        "telp": 628111330295,
+        "email": "ebudiarto47@gmail.com"
+    },
+    {
+        "no": 15,
+        "code": "DEA",
+        "nama": "Endah Utari",
+        "instansi": "MNC TV",
+        "telp": 9999,
+        "email": "endah.utari@mnctv.com"
+    },
+    {
+        "no": 16,
+        "code": "EGO",
+        "nama": "Djoko Agung",
+        "instansi": "KemKominfo",
+        "telp": 62811140805,
+        "email": "djoko.agung.harijadi@kominfo.go.id"
+    },
+    {
+        "no": 17,
+        "code": "EGO",
+        "nama": "Teddy Sukardi",
+        "instansi": "FTII",
+        "telp": 62816831151,
+        "email": "tedsuka@indo.net.id"
+    },
+    {
+        "no": 18,
+        "code": "EGO",
+        "nama": "Herry Abdul Azis",
+        "instansi": "KemKominfo",
+        "telp": 9999,
+        "email": "herry@depkominfo.go.id"
+    },
+    {
+        "no": 19,
+        "code": "EGO",
+        "nama": "Yudho Giri Sucahyo",
+        "instansi": "Univ Indonesia",
+        "telp": 6281584207944,
+        "email": "yudho@cs.ui.ac.id"
+    },
+    {
+        "no": 20,
+        "code": "EGO",
+        "nama": "I Wayan Simri Wicaksana",
+        "instansi": "Univ Gunadarma",
+        "telp": 6281806190318,
+        "email": "iwayan@staff.gunadarma.ac.id"
+    },
+    {
+        "no": 21,
+        "code": "BIE",
+        "nama": "Risman Adnan",
+        "instansi": "Microsoft Indonesia",
+        "telp": 6281510010479,
+        "email": "risman@inix.com"
+    },
+    {
+        "no": 22,
+        "code": "BIE",
+        "nama": "Antonny Liem",
+        "instansi": "Merah Putih Colony",
+        "telp": 6281799917227,
+        "email": "antonny@inix.com"
+    },
+    {
+        "no": 23,
+        "code": "BIE",
+        "nama": "Josafat Moljono",
+        "instansi": "Indomobil Sukses Makmur",
+        "telp": 62218516582,
+        "email": "josafat.moljono@indomobil.co.id"
+    },
+    {
+        "no": 24,
+        "code": "BIE",
+        "nama": "Andrian Herlambang",
+        "instansi": "Kompas Gramedia",
+        "telp": 62811945126,
+        "email": "yanie@itdiv.kompasgramedia.com"
+    },
+    {
+        "no": 25,
+        "code": "BIE",
+        "nama": "Richard Kumaradjaja",
+        "instansi": "Renaissance Consulting",
+        "telp": 62816807392,
+        "email": "rkumaradjaja@renaissance.co.id"
+    },
+    {
+        "no": 26,
+        "code": "BIS",
+        "nama": "Sylvia Sumarlin",
+        "instansi": "FTII",
+        "telp": 628179173333,
+        "email": "ss@dnet.net.id"
+    },
+    {
+        "no": 27,
+        "code": "BIS",
+        "nama": "Hendy Harianto",
+        "instansi": "CMA-CGM Indonesia",
+        "telp": 628161402028,
+        "email": "dja.hharianto@cma-cgm.com"
+    },
+    {
+        "no": 28,
+        "code": "BIS",
+        "nama": "Fachlul Infitar",
+        "instansi": "Ander Cakra Buana",
+        "telp": 9999,
+        "email": "fachlul@gmail.com"
+    },
+    {
+        "no": 29,
+        "code": "BIS",
+        "nama": "Salim Ezer",
+        "instansi": "Qualcomm",
+        "telp": 6281510000047,
+        "email": "sezer@qualcomm.com"
+    },
+    {
+        "no": 30,
+        "code": "BIS",
+        "nama": "Andrew Darwis",
+        "instansi": "Kaskus",
+        "telp": 9999,
+        "email": "andrew@inix.com"
+    },
+    {
+        "no": 31,
+        "code": "BIS",
+        "nama": "Sumarpung Halim",
+        "instansi": "Puspa Intimedia Internusa",
+        "telp": 62811154758,
+        "email": "sumarpung@intimedia.com"
+    },
+    {
+        "no": 32,
+        "code": "RND",
+        "nama": "Prof Dr Marsudi Kisworo",
+        "instansi": "ABFI Perbanas",
+        "telp": 62818888537,
+        "email": "marsudi.kisworo@gmail.com"
+    },
+    {
+        "no": 33,
+        "code": "RND",
+        "nama": "Romi Satria Wahono",
+        "instansi": "Brainmatics",
+        "telp": 9999,
+        "email": "romi@brainmatics.com"
+    },
+    {
+        "no": 34,
+        "code": "RND",
+        "nama": "Dondy Bappediyanto",
+        "instansi": "Infinisys Sistem Indonesia",
+        "telp": 9999,
+        "email": "dondy@isi.co.id"
+    },
+    {
+        "no": 35,
+        "code": "RND",
+        "nama": "Riyanto Gozali",
+        "instansi": "Perdana",
+        "telp": 62816903359,
+        "email": "riyantogozali@gmail.com"
+    },
+    {
+        "no": 36,
+        "code": "RND",
+        "nama": "Prof Dr Kalamullah Ramli",
+        "instansi": "KemKominfo",
+        "telp": 628569009843,
+        "email": "k.ramli@depkominfo.go.id"
+    },
+    {
+        "no": 37,
+        "code": "INC",
+        "nama": "Hidayat Tjokrodjojo",
+        "instansi": "Realta",
+        "telp": 62811147848,
+        "email": "ghidayat@realta.co.id"
+    },
+    {
+        "no": 38,
+        "code": "INC",
+        "nama": "Teguh Anantawikrama",
+        "instansi": "KADIN",
+        "telp": 62818119808,
+        "email": "teguh.anantawikrama@gmail.com"
+    },
+    {
+        "no": 39,
+        "code": "INC",
+        "nama": "Muhammad Ihsan",
+        "instansi": "Warta Ekonomi",
+        "telp": 628129444333,
+        "email": "ihsan@wartaekonomi.com"
+    },
+    {
+        "no": 40,
+        "code": "INC",
+        "nama": "Lia G. Partakusumah",
+        "instansi": "RS Fatmawati",
+        "telp": 62811898259,
+        "email": "liagp16@yahoo.com"
+    },
+    {
+        "no": 41,
+        "code": "INC",
+        "nama": "Betti Alisjahbana",
+        "instansi": "QB",
+        "telp": 62818778687,
+        "email": "balisjahbana@gmail.com"
+    },
+    {
+        "no": 42,
+        "code": "STC",
+        "nama": "Martin Hartono",
+        "instansi": "GDP Venture",
+        "telp": 9999,
+        "email": "martin.b.hartono@gdpventure.com"
+    },
+    {
+        "no": 43,
+        "code": "STC",
+        "nama": "Adi Juwono Rusli",
+        "instansi": "EMC",
+        "telp": 62816835118,
+        "email": "Rusli_Adi@emc.com"
+    },
+    {
+        "no": 44,
+        "code": "STC",
+        "nama": "Jos Luhukay",
+        "instansi": "Bank Panin",
+        "telp": 62811143951,
+        "email": "jluhukay@yahoo.com"
+    },
+    {
+        "no": 45,
+        "code": "STC",
+        "nama": "Ahmad Djauhar",
+        "instansi": "Bisnis Indonesia",
+        "telp": 628129097459,
+        "email": "eljeha@gmail.com"
+    },
+    {
+        "no": 46,
+        "code": "STC",
+        "nama": "Djarot Subiantoro",
+        "instansi": "IndoNet",
+        "telp": 628121828287,
+        "email": "djarot@indo.net.id"
+    },
+    {
+        "no": 47,
+        "code": "ELE",
+        "nama": "Izak Jennie",
+        "instansi": "PT Metrotech Makmur Sejahtera",
+        "telp": 9999,
+        "email": "izak@inix.com"
+    },
+    {
+        "no": 48,
+        "code": "ELE",
+        "nama": "Gatot HP",
+        "instansi": "SEAMEO",
+        "telp": 628129251667,
+        "email": "gatotpriowirjanto@ymail.com"
+    },
+    {
+        "no": 49,
+        "code": "ELE",
+        "nama": "Haryadamar Widiputra, PhD",
+        "instansi": "ABFI Perbanas",
+        "telp": 628121048515,
+        "email": "haryadamar@inix.com"
+    },
+    {
+        "no": 50,
+        "code": "ELE",
+        "nama": "Michael Sunggiardi",
+        "instansi": "Bogornet",
+        "telp": 62811118533,
+        "email": "michael@sunggiardi.com"
+    },
+    {
+        "no": 51,
+        "code": "ELE",
+        "nama": "Didik Sunardi",
+        "instansi": "MIK",
+        "telp": 628118886060,
+        "email": "didik.sunardi@gmail.com"
+    },
+    {
+        "no": 52,
+        "code": "STD",
+        "nama": "Seto Mulyadi",
+        "instansi": "",
+        "telp": 62811192600,
+        "email": "seto@inix.com"
+    },
+    {
+        "no": 53,
+        "code": "STD",
+        "nama": "Yanti Carolina",
+        "instansi": "",
+        "telp": 62816917339,
+        "email": "yanticarolina@yahoo.com"
+    },
+    {
+        "no": 54,
+        "code": "STD",
+        "nama": "Imelda Adhisaputra",
+        "instansi": "Saratoga Capital",
+        "telp": 628111663338,
+        "email": "imelda@saratoga-asia.com"
+    },
+    {
+        "no": 55,
+        "code": "STD",
+        "nama": "Charles Lim",
+        "instansi": "SGU",
+        "telp": 62811869056,
+        "email": "Charles.Lims@gmail.com"
+    },
+    {
+        "no": 56,
+        "code": "STD",
+        "nama": "Bisyron Wahyudi",
+        "instansi": "ID-SIRTII",
+        "telp": 628156179328,
+        "email": "bisyron@idsirtii.or.id"
+    },
+    {
+        "no": 57,
+        "code": "STP",
+        "nama": "Carlia Wisaksono",
+        "instansi": "Perbanas",
+        "telp": 628128065225,
+        "email": "carliacm@gmail.com"
+    },
+    {
+        "no": 58,
+        "code": "STP",
+        "nama": "Muhammad Salman",
+        "instansi": "ID-SIRTII",
+        "telp": 6281218864612,
+        "email": "salman@id-sirtii.or.id"
+    },
+    {
+        "no": 59,
+        "code": "STP",
+        "nama": "Goenawan Loekito",
+        "instansi": "Oracle Indonesia",
+        "telp": 62816826217,
+        "email": "goenawan.loekito@oracle.com"
+    },
+    {
+        "no": 60,
+        "code": "STP",
+        "nama": "Andreas Pardianto",
+        "instansi": "",
+        "telp": 62818773587,
+        "email": "andrep@ymail.com"
+    },
+    {
+        "no": 61,
+        "code": "STP",
+        "nama": "Yova Ruldeviyani",
+        "instansi": "Univ Indonesia",
+        "telp": 6585591030388,
+        "email": "yova@cs.ui.ac.id"
+    },
+    {
+        "no": 62,
+        "code": "STA",
+        "nama": "Boyke Bader Brilianto",
+        "instansi": "Praisindo",
+        "telp": 62811899624,
+        "email": "boyke@praisindo.com"
+    },
+    {
+        "no": 63,
+        "code": "STA",
+        "nama": "Minaldi Loeis",
+        "instansi": "Binus International",
+        "telp": 628118402171,
+        "email": "minaldi@binus.edu"
+    },
+    {
+        "no": 64,
+        "code": "STA",
+        "nama": "Bambang Yuwono",
+        "instansi": "Pesona Edu",
+        "telp": 9999,
+        "email": "bambang@inix.com"
+    },
+    {
+        "no": 65,
+        "code": "STA",
+        "nama": "Dwi Nugroho",
+        "instansi": "UPN",
+        "telp": 628164819081,
+        "email": "dwi06n@yahoo.com"
+    },
+    {
+        "no": 66,
+        "code": "STA",
+        "nama": "Ninok Leksono",
+        "instansi": "UMN",
+        "telp": 62811104274,
+        "email": "ninok@hotmail.com"
+    },
+    {
+        "no": 67,
+        "code": "STUA",
+        "nama": "Heri Sutrisno",
+        "instansi": "Cloud Indonesia",
+        "telp": 628161457203,
+        "email": "heri@inix.com"
+    },
+    {
+        "no": 68,
+        "code": "STUA",
+        "nama": "Ifik Arifin",
+        "instansi": "PANDI",
+        "telp": 62816812668,
+        "email": "ifikarifin@inixindo.co.id"
+    },
+    {
+        "no": 69,
+        "code": "STUA",
+        "nama": "Eddy Satria",
+        "instansi": "Kemenko Perekonomian",
+        "telp": 6281317929792,
+        "email": "satriyaeddy@gmail.com"
+    },
+    {
+        "no": 70,
+        "code": "STUA",
+        "nama": "Thomas Trika",
+        "instansi": "Intellisys",
+        "telp": 62811173039,
+        "email": "thomas.trika@gmail.com"
+    },
+    {
+        "no": 71,
+        "code": "STUA",
+        "nama": "Taufik Hasan",
+        "instansi": "Mastel",
+        "telp": 628122020505,
+        "email": "tfk252hsn@gmail.com"
+    },
+    {
+        "no": 72,
+        "code": "STUA",
+        "nama": "Chrisma Albandjar",
+        "instansi": "Microsoft Indonesia",
+        "telp": 628121163342,
+        "email": "chrisma.albandjar@microsoft.com"
+    },
+    {
+        "no": 73,
+        "code": "STUC",
+        "nama": "Natali Ardianto",
+        "instansi": "Startup.Lokal",
+        "telp": 62811190880,
+        "email": "natali@ardianto.com"
+    },
+    {
+        "no": 74,
+        "code": "STUC",
+        "nama": "Maretha Dewi",
+        "instansi": "Nokia",
+        "telp": 628118603608,
+        "email": "maretha@inix.com"
+    },
+    {
+        "no": 75,
+        "code": "STUC",
+        "nama": "Erwin Setiawan",
+        "instansi": "Metro TV",
+        "telp": 628161407633,
+        "email": "erwin@inix.com"
+    },
+    {
+        "no": 76,
+        "code": "STUC",
+        "nama": "Andy Zain",
+        "instansi": "Mobile Monday Indonesia",
+        "telp": 628121005855,
+        "email": "andy.zain@mobilemonday.co.id"
+    },
+    {
+        "no": 77,
+        "code": "STUC",
+        "nama": "Hizkia Subiyantoro",
+        "instansi": "Blender Indonesia",
+        "telp": 6285643487375,
+        "email": "hizkia.mail@gmail.com"
+    },
+    {
+        "no": 78,
+        "code": "ARS",
+        "nama": "Arief Sudarmaji",
+        "instansi": "Univ Indonesia",
+        "telp": 6281510605528,
+        "email": "arief8500@gmail.com"
+    },
+    {
+        "no": 79,
+        "code": "ARS",
+        "nama": "Dr. Kusprasapta Mutiyarsa",
+        "instansi": "ITB",
+        "telp": 62811217606,
+        "email": "kusprasapta.mutiyarsa@gmail.com"
+    },
+    {
+        "no": 80,
+        "code": "ARS",
+        "nama": "Dr. Riza Muhida",
+        "instansi": "STKIP Surya",
+        "telp": 6281219015178,
+        "email": "muhida@gmail.com"
+    },
+    {
+        "no": 81,
+        "code": "ARS",
+        "nama": "Yan Everhart",
+        "instansi": "Univ Budi Luhur",
+        "telp": 628121825976,
+        "email": "yaneverhard@yahoo.com"
+    },
+    {
+        "no": 82,
+        "code": "ARS",
+        "nama": "Arko PhD",
+        "instansi": "SGU",
+        "telp": 6281310234381,
+        "email": "arko@sgu.ac.id"
+    },
+    {
+        "no": 83,
+        "code": "ARP",
+        "nama": "DR. Eril Mozef",
+        "instansi": "POLTEK NEGERI BANDUNG",
+        "telp": 628122269339,
+        "email": "erilmozef@yahoo.com"
+    },
+    {
+        "no": 84,
+        "code": "ARP",
+        "nama": "DR. Abdul Muis",
+        "instansi": "UNIV.INDONESIA",
+        "telp": 62811978601,
+        "email": "muis@ui.ac.id"
+    },
+    {
+        "no": 85,
+        "code": "ARP",
+        "nama": "DR. Djoko Purwanto",
+        "instansi": "ITS",
+        "telp": 6285230005565,
+        "email": "djoko@elect-eng.its.ac.id"
+    },
+    {
+        "no": 86,
+        "code": "ARP",
+        "nama": "DR. Jaha Nababan",
+        "instansi": "STKIP SURYA",
+        "telp": 6283819112506,
+        "email": "jaha.mababan@stkipsurya.ac.id"
+    },
+    {
+        "no": 87,
+        "code": "ARP",
+        "nama": "Prof. Adang Suwandi Achmad",
+        "instansi": "ITB",
+        "telp": 62811209770,
+        "email": "asa@stei.itb.ac.id"
+    }
+]
