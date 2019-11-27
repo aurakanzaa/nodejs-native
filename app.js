@@ -2,6 +2,7 @@ const http = require("http");
 const fs = require("fs");
 const _ = require("underscore");
 const db = require("./sqlite-config");
+const { parse } = require('querystring');
 const PORT = 3000;
 
 const server = http.createServer((req, res) => {
@@ -37,11 +38,12 @@ const server = http.createServer((req, res) => {
                 });
             }
         });
-    } else if (url === "/") {
+    } 
+    else if (url === "/") {
         res.writeHead(200, {
             "Content-Type": "text/html"
         });
-        fs.readFile("./views/judges.html", "utf-8", (error, data) => {
+        fs.readFile("./views/main.html", "utf-8", (error, data) => {
             if (error) {
                 res.writeHead(404);
                 res.write("Whoops! File not found!");
@@ -51,25 +53,24 @@ const server = http.createServer((req, res) => {
                     let htmlToStr = compiled({
                         rows
                     })
-                    res.end(htmlToStr)
+                    res.end(htmlToStr) // ngebaca tanda <% %>
                 });
             }
         });
     }
-    else if (url === "/insert") {
+    else if (url === "/insertjudges/insert") {
         fs.readFile("./views/insert.html", "utf-8", (error, data) => {
             if (error) {
                 res.writeHead(404);
                 res.write("Whoops! File not found!");
             } else {
-                
                 res.write(data);
             }
             res.end();
         });
     }
     else if (url === "/edit") {
-        fs.readFile("./views/index.html", null, function (error, data) {
+        fs.readFile("./views/edit.html", null, function (error, data) {
             if (error) {
                 res.writeHead(404);
                 res.write("Whoops! File not found!");
@@ -78,12 +79,50 @@ const server = http.createServer((req, res) => {
             }
             res.end();
         });
-    } else {
+    } 
+
+    else if (req.method === 'POST' && url === '/insert') (data) => {
+        console.log(data);
+        collectRequestData(req, result => {
+            console.log(result);
+            // res.end(`Parsed data belonging to ${result.fname}`);
+            
+            let query = "INSERT INTO judges_list (code, nama, instansi, telp, email) VALUES ('${code}','${nama}','${instansi}' ,${telp}, '${email}')"
+            db.run(query, (err,rows) => {
+                let compiled = _.template(data)
+                let htmlToStr = compiled({
+                    rows
+                })
+                res.end(htmlToStr) // ngebaca tanda <% %>
+            })
+        });
+        
+    } 
+    
+    else {
         res.write("page not found");
         res.end();
     }
+
+    
 });
 
 server.listen(PORT, function () {
     console.log("Listening on port http://localhost:"+ PORT);
 });
+
+function collectRequestData(request, callback) {
+    const FORM_URLENCODED = 'application/x-www-form-urlencoded';
+    if(request.headers['content-type'] === FORM_URLENCODED) {
+        let body = '';
+        request.on('data', chunk => {
+            body += chunk.toString();
+        });
+        request.on('end', () => {
+            callback(parse(body));
+        });
+    }
+    else {
+        callback(null);
+    }
+}

@@ -5,6 +5,8 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <title>This is read from json</title>
         <style>
             table {
@@ -27,7 +29,7 @@
     <body>
         <div class="container-fluid">
             <div style="margin-top:1%;margin-bottom:1%">
-                <a href="/insert" class="btn btn-default"><i class="fa fa-plus" aria-hidden="true"></i> Tambah Data</a>
+                <a href="/insertjudges/insert" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Tambah Data</a>
             </div>
             <table>
                 <tr>
@@ -39,7 +41,7 @@
                   <th>Email</th>
                   <th>Option</th>
                 </tr>
-                <% dataJson.forEach((item) => { %>
+                <% rows.forEach((item) => {  %>
                     <tr>
                         <td><%= item.no %></td>
                         <td><%= item.code %></td>
@@ -48,11 +50,12 @@
                         <td><%= item.telp %></td>
                         <td><%= item.email %></td>
                         <td>
-                            <a href="/edit/<%= item.id %>"><i class="fa fa-edit"></i></a>
-                            <a href="/remove/<%= item.id %>"><i class="fa fa-trash"></i></a>
+                            <a href="/edit/<%= item.no %>" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
+                            <a href="/remove/<%= item.no %>" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
                         </td>
+                        
                     </tr>
-                    <%} ); %>
+                    <% }); %>
               </table>
         </div>
     </body>

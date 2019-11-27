@@ -72,20 +72,24 @@
     <body>
         
         <form class="form1" method="POST" action="/insert/<%= info.id %>">
-            <label for="name" class="first-name">Name</label>
-            <input id="name" class="form-control" type="text" name="name" value="<%= info.name %>">
+            <h2>Update Data</h2>
 
+            <label for="code" >Code</label>
+            <input id="code" class="form-control" type="text" name="code" value="<%= info.code %>">
+            
+            <label for="nama" class="first-name">Name</label>
+            <input id="nama" class="form-control" type="text" name="nama" value="<%= info.nama %>">
 
-            <label for="job">Job</label>
-            <input id="job" class="form-control" type="text" name="job" value="<%= info.job %>">
+            <label for="instantion">Instantion</label>
+            <input id="instantion" class="form-control" type="text" name="instansi" value="<%= info.instansi %>">
 
-            <label for="age">Age</label>
-            <input id="age" class="form-control" type="number" name="age" value="<%= info.age %>">
+            <label for="telp">Telp</label>
+            <input id="telp" class="form-control" type="text" name="telp" value="<%= info.telp %>">
 
             <label for="email">Email</label>
             <input id="email" class="form-control" type="email" name="email" value="<%= info.email %>">
 
-            <button type="submit" value="submit" class="btn">Submit</button>
+            <button type="submit" value="submit" class="btn">Update</button>
         </form>
 
         
