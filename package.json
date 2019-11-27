@@ -17,5 +17,13 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aurakanzaa/nodejs-native.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aurakanzaa/nodejs-native/issues"
+  },
+  "homepage": "https://github.com/aurakanzaa/nodejs-native#readme"
 }

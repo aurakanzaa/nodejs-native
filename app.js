@@ -2,12 +2,13 @@ const http = require("http");
 const fs = require("fs");
 const _ = require("underscore");
 const db = require("./sqlite-config");
+const PORT = 3000;
 
 const server = http.createServer((req, res) => {
     let url = req.url;
-
+    // membaca file csv
     if (url === "/csv") {
-        fs.readFile("./views/main.html", "utf-8", (error, data) => {
+        fs.readFile("./views/csv.html", "utf-8", (error, data) => {
             if (error) {
                 res.writeHead(404);
                 res.write("Whoops! File not found!");
@@ -83,6 +84,6 @@ const server = http.createServer((req, res) => {
     }
 });
 
-server.listen(1234, function () {
-    console.log("Listening on port 1234");
+server.listen(PORT, function () {
+    console.log("Listening on port http://localhost:"+ PORT);
 });

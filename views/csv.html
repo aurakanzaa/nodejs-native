@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>This is read from json</title>
+        <style>
+            table {
+              font-family: arial, sans-serif;
+              border-collapse: collapse;
+              width: 100%;
+            }
+            
+            td, th {
+              border: 1px solid #dddddd;
+              text-align: left;
+              padding: 8px;
+            }
+            
+            tr:nth-child(even) {
+              background-color: #dddddd;
+            }
+            </style>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <!-- <div style="margin-top:1%;margin-bottom:1%">
+                <a href="/insert" class="btn btn-default"><i class="fa fa-plus" aria-hidden="true"></i> Tambah Data</a>
+            </div> -->
+            <table>
+                <tr>
+                  <th>No</th>
+                  <th>Code</th>
+                  <th>Name</th>
+                  <th>Instantion</th>
+                  <th>Telephone</th>
+                  <th>Email</th>
+                </tr>
+                <% dataJson.forEach((item) => { %>
+                    <tr>
+                        <td><%= item.no %></td>
+                        <td><%= item.code %></td>
+                        <td><%= item.nama %></td>
+                        <td><%= item.instansi %></td>
+                        <td><%= item.telp %></td>
+                        <td><%= item.email %></td>
+                        
+                    </tr>
+                    <%} ); %>
+              </table>
+        </div>
+    </body>
+</html>
+<script>
+</script>
