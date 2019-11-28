@@ -1,56 +1,60 @@
-
 <!DOCTYPE html>
 <html lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Title Page</title>
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="./public/css/insert.css">
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-        <!-- jQuery -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <!-- Bootstrap JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-        <style>
-            form {
-                display: grid;
-                padding: 1em;
-                background: #f9f9f9;
-                border: 1px solid #c1c1c1;
-                margin: 2rem auto 0 auto;
-                max-width: 600px;
-                padding: 1em;
-            }
-            form input {
-                background: #fff;
-                border: 1px solid #9c9c9c;
-            }
-            form button {
-                background: lightgrey;
-                padding: 0.7em;
-                width: 100%;
-                border: 0;
-            }
-            form button:hover {
-                background: #357376;
-                color: white!important;
-            }
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title Page</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./public/css/insert.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-            label {
-                padding: 0.5em 0.5em 0.5em 0;
-            }
+    <style>
+        form {
+            display: grid;
+            padding: 1em;
+            background: #f9f9f9;
+            border: 1px solid #c1c1c1;
+            margin: 2rem auto 0 auto;
+            max-width: 600px;
+            padding: 1em;
+        }
 
-            input {
-                padding: 0.7em;
-                margin-bottom: 0.5rem;
-            }
-            input:focus {
-                outline: 3px solid #357376;
-                /* color: white; */
-            }
+        form input {
+            background: #fff;
+            border: 1px solid #9c9c9c;
+        }
+
+        form button {
+            background: lightgrey;
+            padding: 0.7em;
+            width: 100%;
+            border: 0;
+        }
+
+        form button:hover {
+            background: #357376;
+            color: white !important;
+        }
+
+        label {
+            padding: 0.5em 0.5em 0.5em 0;
+        }
+
+        input {
+            padding: 0.7em;
+            margin-bottom: 0.5rem;
+        }
+
+        input:focus {
+            outline: 3px solid #357376;
+            /* color: white; */
+        }
 
         @media (min-width: 400px) {
             form {
@@ -63,36 +67,39 @@
                 grid-column: 1 / 2;
             }
 
-            input,button {
+            input,
+            button {
                 grid-column: 2 / 3;
             }
         }
-        </style>
-    </head>
-    <body>
-        
-        <form class="form1" method="POST" action="/insert">
-            <h2>Insert Data</h2>
-            <label for="code">Code</label>
-            <input id="code" class="form-control" type="text" name="code">
-            
-            <label for="name" class="first-name">Name</label>
-            <input id="name" class="form-control" type="text" name="nama">
+    </style>
+</head>
+
+<body>
+
+    <form class="form1" method="POST" action="/insert">
+        <h2>Insert Data</h2>
+        <label for="code">Code</label>
+        <input id="code" class="form-control" type="text" name="code">
+
+        <label for="name" class="first-name">Name</label>
+        <input id="name" class="form-control" type="text" name="nama">
 
 
-            <label for="instansi">Instantion</label>
-            <input id="instansi" class="form-control" type="text" name="instansi">
+        <label for="instansi">Instantion</label>
+        <input id="instansi" class="form-control" type="text" name="instansi">
 
-            <label for="age">Telp</label>
-            <input id="age" class="form-control" type="text" name="telp">
+        <label for="age">Telp</label>
+        <input id="age" class="form-control" type="text" name="telp">
 
-            <label for="email">Email</label>
-            <input id="email" class="form-control" type="email" name="email">
+        <label for="email">Email</label>
+        <input id="email" class="form-control" type="email" name="email">
 
-            <button type="submit" value="add" class="btn">Submit</button>
-        </form>
+        <button type="submit" value="add" class="btn">Submit</button>
+    </form>
 
-        
-        
-    </body>
+
+
+</body>
+
 </html>
