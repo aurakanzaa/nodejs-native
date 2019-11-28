@@ -91,11 +91,36 @@ const server = http.createServer((req, res) => {
         res.writeHead(404);
         res.write("Whoops! File not found!");
       } else {
+        // res.write(data);
+        if (req.method === "GET" && url.searchParams.has('no')){
+            collectRequestData(req, result => {
+                console.log(result);
+                let query = `UPDATE judges_list SET code = '${result.code}', nama = '${result.nama}', instansi ='${result.instansi}' , telp = ${result.telp}, email ='${result.email}' WHERE no = ? `;
+                db.run(query, url.searchParams.has('no'), 
+                    function(err,result){
+                        if (err){
+                            console.log(err);
+                            console.log(query);
+                        } else{
+                            res.writeHead(302, {
+                                Location: "./views/main.html"
+                            });
+                            res.end();
+                        }
+                    }
+                )
+            });
+        }
         res.write(data);
       }
       res.end();
     });
-  } else {
+  } else if (url === "/:no"){
+        let query = `SELECT * from judges_list where no = ?`;
+        db.get(query, url.searchParams.has('no'), (err,row)=>{
+            // blm selesai
+        })
+  }else {
     res.write("page not found");
     res.end();
   }
