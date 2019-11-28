@@ -96,7 +96,6 @@ const server = http.createServer((req, res) => {
                 res.end(htmlToStr) // ngebaca tanda <% %>
             })
         });
-        
     } 
     
     else {
