@@ -64,22 +64,19 @@ const server = http.createServer((req, res) => {
       } else {
         if (req.method === "POST") {
           collectRequestData(req, result => {
-            console.log(result)
-            let query = `INSERT INTO judges_list (code, nama, instansi, telp, email) VALUES ('${result.code}','${result.nama}','${result.instansi}' ,${result.telp}, '${result.email}') `
-            db.run(
-                query,
-                function(err,result){
-                    if(err){
-                        console.log(err)
-                        console.log(query)
-                    }else {
-                        res.writeHead(302, {
-                            'Location': './views/main.html'
-                        })
-                        res.end()
-                    }
-                }
-            )
+            console.log(result);
+            let query = `INSERT INTO judges_list (code, nama, instansi, telp, email) VALUES ('${result.code}','${result.nama}','${result.instansi}' ,${result.telp}, '${result.email}') `;
+            db.run(query, function(err, result) {
+              if (err) {
+                console.log(err);
+                console.log(query);
+              } else {
+                res.writeHead(302, {
+                  Location: "./views/main.html"
+                });
+                res.end();
+              }
+            });
             //res.end()
             res.end(`Parsed data belonging to ${result.code}`);
           });
