@@ -61,7 +61,6 @@ const server = http.createServer((req, res) => {
                 res.writeHead(404);
                 res.write("Whoops! File not found!");
             } else {
-                
                 res.write(data);
             }
             res.end();
