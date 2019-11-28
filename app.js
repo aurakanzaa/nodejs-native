@@ -77,8 +77,8 @@ const server = http.createServer((req, res) => {
                 res.end();
               }
             });
-            //res.end()
-            res.end(`Parsed data belonging to ${result.code}`);
+            res.end()
+            //res.end(`Parsed data belonging to ${result.code}`);
           });
         }
         res.write(data);
