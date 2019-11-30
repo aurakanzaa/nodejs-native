@@ -14,6 +14,7 @@ const search_params = current_url.searchParams;
 
 const server = http.createServer((req, res) => {
   let url = req.url;
+  console.log(search_params)
   let url_split = url.split('/');
 
   //console.log(url_split);
@@ -81,14 +82,11 @@ const server = http.createServer((req, res) => {
                 console.log(err);
                 console.log(query);
               } else {
-                res.writeHead(302, {
-                  Location: "./views/main.html"
-                });
+                res.writeHead (301, {'Location': 'http://localhost:3001'});
                 res.end();
               }
             });
             res.end()
-            //res.end(`Parsed data belonging to ${result.code}`);
           });
         }
         res.write(data);
@@ -104,7 +102,7 @@ const server = http.createServer((req, res) => {
       } else {
         var strHtml;
         var buf;
-        console.log(url_split[2]);
+        
         db.get("SELECT * FROM judges_list where no="+url_split[2], (err, rows) => {
           strHtml = data.toString();
           strHtml = strHtml.replace('no_val',rows.no);
@@ -123,67 +121,53 @@ const server = http.createServer((req, res) => {
       }
       // res.end();
     });
-  } else if (url === "edit/process"){
+  } else if (url_split[1] === "edit_process" && url_split[2] !== ''){
     fs.readFile("./views/edit.html", null, function(error, data) {
       if (error) {
         res.writeHead(404);
         res.write("Whoops! File not found!");
         res.end();
       } else {
-        res.write(data);
-        if (req.method === 'GET'){
+        if (req.method === 'POST'){
           collectRequestData(req, result => {
             console.log(result);
             let query = `UPDATE judges_list SET code = '${result.code}', nama = '${result.nama}', instansi ='${result.instansi}' , telp = ${result.telp}, email ='${result.email}' WHERE no = ? `;
-            db.run(query, url.searchParams.has('no'), 
+            db.run(query, url_split[2], 
               function(err,result){
                 if (err){
                   console.log(err);
                   console.log(query);
                 } else{
-                  res.writeHead(302, {
-                      Location: "./views/main.html"
-                  });
+                  res.writeHead (301, {'Location': 'http://localhost:3001'});
                   res.end();
                 }
               }
             )
           });
         }
-        // current_url.pathname='/edit';
-        // console.log(url.href);
-
-        // var q = ur.parse(url,true);
-        // console.log(q);
-        
-        // var str = pathname;
-        // var pattern =/^\/edit\//;
-        // var arrMatches = str.match(pattern);
-        // if(arrMatches){
-        //   console.log(arrMatches+" sesuai");
-        // }else{
-        //   console.log(arrMatches+" tida sesuai");
-        // }
       }
       // res.end();
     });
 
-  } else if (url === "/:no"){
+  } else if (url_split[1] === "remove" && url_split[2] !== ''){
   
-    var str = pathname;
-    var pattern =/\/edit\//;
-    var arrMatches = str.match(pattern);
-    if(arrMatches){
-      console.log(arrMatches+" sesuai");
-
-    }else{
-      console.log(arrMatches+" tida sesuai");
+    if (req.method === 'GET'){
+      collectRequestData(req, result => {
+        console.log(result);
+        let query = `DELETE from judges_list WHERE no = ? `;
+        db.run(query, url_split[2], 
+          function(err,result){
+            if (err){
+              console.log(err);
+              console.log(query);
+            } else{
+              res.writeHead (301, {'Location': 'http://localhost:3001'});
+              res.end();
+            }
+          }
+        )
+      });
     }
-
-    let query = `SELECT * from judges_list where no = ?`;
-    db.get(query, url.searchParams.has('no'), (err,row)=>{
-
-    })
        
   }else {
     res.write("page not found");
@@ -191,9 +175,7 @@ const server = http.createServer((req, res) => {
   }
 });
 
-// const req = https.request(options,(res) => {
-//   // ...........
-// })
+
 
 server.listen(PORT, function() {
   console.log("Listening on port http://localhost:" + PORT);
