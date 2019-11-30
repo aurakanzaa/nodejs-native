@@ -28,35 +28,35 @@
     </head>
     <body>
         <div class="container-fluid">
-            <div style="margin-top:1%;margin-bottom:1%">
-                <a href="/insert" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Tambah Data</a>
-            </div>
-            <table>
-                <tr>
-                  <th>No</th>
-                  <th>Code</th>
-                  <th>Name</th>
-                  <th>Instantion</th>
-                  <th>Telephone</th>
-                  <th>Email</th>
-                  <th>Option</th>
-                </tr>
-                <% rows.forEach((item) => {  %>
-                    <tr>
-                        <td><%= item.no %></td>
-                        <td><%= item.code %></td>
-                        <td><%= item.nama %></td>
-                        <td><%= item.instansi %></td>
-                        <td><%= item.telp %></td>
-                        <td><%= item.email %></td>
-                        <td>
-                            <a href="/edit/<%= item.no %>" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
-                            <a href="/remove/<%= item.no %>" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
-                        </td>
-                        
-                    </tr>
-                    <% }); %>
-              </table>
+          <div style="margin-top:1%;margin-bottom:1%">
+            <a href="/insert" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Tambah Data</a>
+          </div>
+          <table>
+            <tr>
+              <th>No</th>
+              <th>Code</th>
+              <th>Name</th>
+              <th>Instantion</th>
+              <th>Telephone</th>
+              <th>Email</th>
+              <th>Option</th>
+            </tr>
+            <% rows.forEach((item) => {  %>
+            <tr>
+              <td><%= item.no %></td>
+              <td><%= item.code %></td>
+              <td><%= item.nama %></td>
+              <td><%= item.instansi %></td>
+              <td><%= item.telp %></td>
+              <td><%= item.email %></td>
+              <td>
+                  <a href="/edit/<%= item.no %>" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
+                  <a href="/remove/<%= item.no %>" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+              </td>
+                
+            </tr>
+            <% }); %>
+          </table>
         </div>
     </body>
 </html>

@@ -71,23 +71,23 @@
     </head>
     <body>
         
-        <form class="form1" method="POST" action="/insert/<%= info.id %>">
+        <form class="form1" method="POST" action="/edit/no_val">
             <h2>Update Data</h2>
 
             <label for="code" >Code</label>
-            <input id="code" class="form-control" type="text" name="code" value="<%= info.code %>">
+            <input id="code" class="form-control" type="text" name="code" value="code_val">
             
             <label for="nama" class="first-name">Name</label>
-            <input id="nama" class="form-control" type="text" name="nama" value="<%= info.nama %>">
+            <input id="nama" class="form-control" type="text" name="nama" value="nama_val">
 
             <label for="instantion">Instantion</label>
-            <input id="instantion" class="form-control" type="text" name="instansi" value="<%= info.instansi %>">
+            <input id="instantion" class="form-control" type="text" name="instansi" value="instansi_val">
 
             <label for="telp">Telp</label>
-            <input id="telp" class="form-control" type="text" name="telp" value="<%= info.telp %>">
+            <input id="telp" class="form-control" type="text" name="telp" value="telp_val">
 
             <label for="email">Email</label>
-            <input id="email" class="form-control" type="email" name="email" value="<%= info.email %>">
+            <input id="email" class="form-control" type="email" name="email" value="email_val">
 
             <button type="submit" value="submit" class="btn">Update</button>
         </form>

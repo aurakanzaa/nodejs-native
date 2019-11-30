@@ -1,12 +1,22 @@
 const http = require("http");
+const https = require("https");
 const fs = require("fs");
+var ur = require('url');
 const _ = require("underscore");
 const db = require("./sqlite-config");
 const { parse } = require("querystring");
-const PORT = 3000;
+const PORT = 3001;
+
+// ara nambahin
+const current_url = new URL("http://localhost:3000/edit?no=23");
+const pathname = current_url.pathname;
+const search_params = current_url.searchParams;
 
 const server = http.createServer((req, res) => {
   let url = req.url;
+  let url_split = url.split('/');
+
+  //console.log(url_split);
   // membaca file csv
   if (url === "/csv") {
     fs.readFile("./views/csv.html", "utf-8", (error, data) => {
@@ -85,46 +95,105 @@ const server = http.createServer((req, res) => {
       }
       res.end();
     });
-  } else if (url === "/edit") {
+  } else if (url_split[1] === "edit" && url_split[2] !== '' && url_split[2] !== 'public') {
     fs.readFile("./views/edit.html", null, function(error, data) {
       if (error) {
         res.writeHead(404);
         res.write("Whoops! File not found!");
+        res.end();
       } else {
-        // res.write(data);
-        if (req.method === "GET" && url.searchParams.has('no')){
-            collectRequestData(req, result => {
-                console.log(result);
-                let query = `UPDATE judges_list SET code = '${result.code}', nama = '${result.nama}', instansi ='${result.instansi}' , telp = ${result.telp}, email ='${result.email}' WHERE no = ? `;
-                db.run(query, url.searchParams.has('no'), 
-                    function(err,result){
-                        if (err){
-                            console.log(err);
-                            console.log(query);
-                        } else{
-                            res.writeHead(302, {
-                                Location: "./views/main.html"
-                            });
-                            res.end();
-                        }
-                    }
-                )
-            });
-        }
-        res.write(data);
+        var strHtml;
+        var buf;
+        console.log(url_split[2]);
+        db.get("SELECT * FROM judges_list where no="+url_split[2], (err, rows) => {
+          strHtml = data.toString();
+          strHtml = strHtml.replace('no_val',rows.no);
+          strHtml = strHtml.replace('code_val',rows.code);
+          strHtml = strHtml.replace('nama_val',rows.nama);
+          strHtml = strHtml.replace('instansi_val',rows.instansi);
+          strHtml = strHtml.replace('telp_val',rows.telp);
+          strHtml = strHtml.replace('email_val',rows.email);
+          
+          buf = Buffer.from(strHtml, 'utf8');
+          // console.log(strHtml)
+          res.write(buf);
+          res.end();
+        });
+        // console.log(strHtml); 
       }
-      res.end();
+      // res.end();
     });
+  } else if (url === "edit/process"){
+    fs.readFile("./views/edit.html", null, function(error, data) {
+      if (error) {
+        res.writeHead(404);
+        res.write("Whoops! File not found!");
+        res.end();
+      } else {
+        res.write(data);
+        if (req.method === 'GET'){
+          collectRequestData(req, result => {
+            console.log(result);
+            let query = `UPDATE judges_list SET code = '${result.code}', nama = '${result.nama}', instansi ='${result.instansi}' , telp = ${result.telp}, email ='${result.email}' WHERE no = ? `;
+            db.run(query, url.searchParams.has('no'), 
+              function(err,result){
+                if (err){
+                  console.log(err);
+                  console.log(query);
+                } else{
+                  res.writeHead(302, {
+                      Location: "./views/main.html"
+                  });
+                  res.end();
+                }
+              }
+            )
+          });
+        }
+        // current_url.pathname='/edit';
+        // console.log(url.href);
+
+        // var q = ur.parse(url,true);
+        // console.log(q);
+        
+        // var str = pathname;
+        // var pattern =/^\/edit\//;
+        // var arrMatches = str.match(pattern);
+        // if(arrMatches){
+        //   console.log(arrMatches+" sesuai");
+        // }else{
+        //   console.log(arrMatches+" tida sesuai");
+        // }
+      }
+      // res.end();
+    });
+
   } else if (url === "/:no"){
-        let query = `SELECT * from judges_list where no = ?`;
-        db.get(query, url.searchParams.has('no'), (err,row)=>{
-            // blm selesai
-        })
+  
+    var str = pathname;
+    var pattern =/\/edit\//;
+    var arrMatches = str.match(pattern);
+    if(arrMatches){
+      console.log(arrMatches+" sesuai");
+
+    }else{
+      console.log(arrMatches+" tida sesuai");
+    }
+
+    let query = `SELECT * from judges_list where no = ?`;
+    db.get(query, url.searchParams.has('no'), (err,row)=>{
+
+    })
+       
   }else {
     res.write("page not found");
     res.end();
   }
 });
+
+// const req = https.request(options,(res) => {
+//   // ...........
+// })
 
 server.listen(PORT, function() {
   console.log("Listening on port http://localhost:" + PORT);
