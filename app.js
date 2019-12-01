@@ -80,7 +80,7 @@ const server = http.createServer((req, res) => {
             db.run(query, function(err, result) {
               if (err) {
                 console.log(err);
-                console.log(query);
+                console.log(result);
               } else {
                 res.writeHead (301, {'Location': 'http://localhost:3001'});
                 res.end();
