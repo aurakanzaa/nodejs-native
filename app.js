@@ -1,24 +1,14 @@
 const http = require("http");
-const https = require("https");
 const fs = require("fs");
-var ur = require('url');
 const _ = require("underscore");
 const db = require("./sqlite-config");
 const { parse } = require("querystring");
 const PORT = 3001;
 
-// ara nambahin
-const current_url = new URL("http://localhost:3000/edit?no=23");
-const pathname = current_url.pathname;
-const search_params = current_url.searchParams;
-
 const server = http.createServer((req, res) => {
   let url = req.url;
-  console.log(search_params)
-  let url_split = url.split('/');
-
-  //console.log(url_split);
-  // membaca file csv
+  let url_split = url.split("/");
+  
   if (url === "/csv") {
     fs.readFile("./views/csv.html", "utf-8", (error, data) => {
       if (error) {
@@ -57,7 +47,7 @@ const server = http.createServer((req, res) => {
       if (error) {
         res.writeHead(404);
         res.write("Whoops! File not found!");
-      } else {
+      } else { 
         db.all("SELECT * FROM judges_list", (err, rows) => {
           let compiled = _.template(data);
           let htmlToStr = compiled({
@@ -82,18 +72,22 @@ const server = http.createServer((req, res) => {
                 console.log(err);
                 console.log(result);
               } else {
-                res.writeHead (301, {'Location': 'http://localhost:3001'});
+                res.writeHead(301, { Location: "http://localhost:3001" });
                 res.end();
               }
             });
-            res.end()
+            res.end();
           });
         }
         res.write(data);
       }
       res.end();
     });
-  } else if (url_split[1] === "edit" && url_split[2] !== '' && url_split[2] !== 'public') {
+  } else if (
+    url_split[1] === "edit" &&
+    url_split[2] !== "" &&
+    url_split[2] !== "public"
+  ) {
     fs.readFile("./views/edit.html", null, function(error, data) {
       if (error) {
         res.writeHead(404);
@@ -102,80 +96,84 @@ const server = http.createServer((req, res) => {
       } else {
         var strHtml;
         var buf;
-        
-        db.get("SELECT * FROM judges_list where no="+url_split[2], (err, rows) => {
-          strHtml = data.toString();
-          strHtml = strHtml.replace('no_val',rows.no);
-          strHtml = strHtml.replace('code_val',rows.code);
-          strHtml = strHtml.replace('nama_val',rows.nama);
-          strHtml = strHtml.replace('instansi_val',rows.instansi);
-          strHtml = strHtml.replace('telp_val',rows.telp);
-          strHtml = strHtml.replace('email_val',rows.email);
-          
-          buf = Buffer.from(strHtml, 'utf8');
-          // console.log(strHtml)
-          res.write(buf);
-          res.end();
-        });
-        // console.log(strHtml); 
+
+        db.get(
+          "SELECT * FROM judges_list where no=" + url_split[2],
+          (err, rows) => {
+            strHtml = data.toString();
+            strHtml = strHtml.replace("no_val", rows.no);
+            strHtml = strHtml.replace("code_val", rows.code);
+            strHtml = strHtml.replace("nama_val", rows.nama);
+            strHtml = strHtml.replace("instansi_val", rows.instansi);
+            strHtml = strHtml.replace("telp_val", rows.telp);
+            strHtml = strHtml.replace("email_val", rows.email);
+
+            buf = Buffer.from(strHtml, "utf8");
+            // console.log(strHtml)
+            res.write(buf);
+            res.end();
+          }
+        );
+        // console.log(strHtml);
       }
       // res.end();
     });
-  } else if (url_split[1] === "edit_process" && url_split[2] !== ''){
+  } else if (url_split[1] === "edit_process" && url_split[2] !== "") {
     fs.readFile("./views/edit.html", null, function(error, data) {
       if (error) {
         res.writeHead(404);
         res.write("Whoops! File not found!");
         res.end();
       } else {
-        if (req.method === 'POST'){
+        if (req.method === "POST") {
           collectRequestData(req, result => {
             console.log(result);
             let query = `UPDATE judges_list SET code = '${result.code}', nama = '${result.nama}', instansi ='${result.instansi}' , telp = ${result.telp}, email ='${result.email}' WHERE no = ? `;
-            db.run(query, url_split[2], 
-              function(err,result){
-                if (err){
-                  console.log(err);
-                  console.log(query);
-                } else{
-                  res.writeHead (301, {'Location': 'http://localhost:3001'});
-                  res.end();
-                }
+            db.run(query, url_split[2], function(err, result) {
+              if (err) {
+                console.log(err);
+                console.log(query);
+              } else {
+                res.writeHead(301, { Location: "http://localhost:3001" });
+                res.end();
               }
-            )
+            });
           });
         }
       }
       // res.end();
     });
-
-  } else if (url_split[1] === "remove" && url_split[2] !== ''){
-  
-    if (req.method === 'GET'){
+  } else if (url_split[1] === "remove" && url_split[2] !== "") {
+    if (req.method === "GET") {
       collectRequestData(req, result => {
         console.log(result);
         let query = `DELETE from judges_list WHERE no = ? `;
-        db.run(query, url_split[2], 
-          function(err,result){
-            if (err){
-              console.log(err);
-              console.log(query);
-            } else{
-              res.writeHead (301, {'Location': 'http://localhost:3001'});
-              res.end();
-            }
+        db.run(query, url_split[2], function(err, result) {
+          if (err) {
+            console.log(err);
+            console.log(query);
+          } else {
+            res.writeHead(301, { Location: "http://localhost:3001" });
+            res.end();
           }
-        )
+        });
       });
     }
-       
-  }else {
+  } else if (url === "/public/css/main.css") {
+    fs.readFile(__dirname + req.url, function (err,data) {
+      if (err) {
+        res.writeHead(404);
+        res.end(JSON.stringify(err));
+        return;
+      }
+      res.writeHead(200);
+      res.end(data);
+    });
+  } else {
     res.write("page not found");
     res.end();
   }
 });
-
-
 
 server.listen(PORT, function() {
   console.log("Listening on port http://localhost:" + PORT);
@@ -192,6 +190,6 @@ function collectRequestData(request, callback) {
       callback(parse(body));
     });
   } else {
-    callback(null);
+      callback(null);
   }
 }
