@@ -72,7 +72,7 @@ const server = http.createServer((req, res) => {
                 console.log(err);
                 console.log(result);
               } else {
-                res.writeHead (301, {'Location': 'http://0.0.0.0:3000'});
+                res.writeHead (301, {'Location': 'http://222.165.222.78:3000'});
                 res.end();
               }
             });
@@ -134,7 +134,7 @@ const server = http.createServer((req, res) => {
                 console.log(err);
                 console.log(query);
               } else {
-                res.writeHead(301, { Location: "http://0.0.0.0:3000" });
+                res.writeHead(301, { Location: "http://222.165.222.78:3000" });
                 res.end();
               }
             });
@@ -153,7 +153,7 @@ const server = http.createServer((req, res) => {
             console.log(err);
             console.log(query);
           } else {
-            res.writeHead(301, { Location: "http://0.0.0.0:3000" });
+            res.writeHead(301, { Location: "http://222.165.222.78:3000" });
             res.end();
           }
         });
@@ -176,7 +176,7 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(PORT, function() {
-  console.log("Listening on port http://0.0.0.0:" + PORT);
+  console.log("Listening on port http://222.165.222.78:" + PORT);
 });
 
 function collectRequestData(request, callback) {
