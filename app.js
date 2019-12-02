@@ -4,6 +4,7 @@ const _ = require("underscore");
 const db = require("./sqlite-config");
 const { parse } = require("querystring");
 const PORT = 3000;
+const HOST = "0.0.0.0";
 
 const server = http.createServer((req, res) => {
   let url = req.url;
@@ -175,8 +176,9 @@ const server = http.createServer((req, res) => {
   }
 });
 
-server.listen(PORT, function() {
-  console.log("Listening on port http://222.165.222.78:" + PORT);
+server.listen(PORT,HOST, function() {
+  // console.log("Listening on port http://222.165.222.78:" + PORT);
+  console.log(`Magic happen on http://${HOST}:${PORT}`);
 });
 
 function collectRequestData(request, callback) {
