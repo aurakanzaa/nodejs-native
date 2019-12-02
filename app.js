@@ -5,7 +5,7 @@ var ur = require('url');
 const _ = require("underscore");
 const db = require("./sqlite-config");
 const { parse } = require("querystring");
-const PORT = 3001;
+const PORT = 3000;
 
 // ara nambahin
 const current_url = new URL("http://localhost:3000/edit?no=23");
@@ -82,7 +82,7 @@ const server = http.createServer((req, res) => {
                 console.log(err);
                 console.log(query);
               } else {
-                res.writeHead (301, {'Location': 'http://localhost:3001'});
+                res.writeHead (301, {'Location': 'http://localhost:3000'});
                 res.end();
               }
             });
@@ -138,7 +138,7 @@ const server = http.createServer((req, res) => {
                   console.log(err);
                   console.log(query);
                 } else{
-                  res.writeHead (301, {'Location': 'http://localhost:3001'});
+                  res.writeHead (301, {'Location': 'http://localhost:3000'});
                   res.end();
                 }
               }
@@ -161,7 +161,7 @@ const server = http.createServer((req, res) => {
               console.log(err);
               console.log(query);
             } else{
-              res.writeHead (301, {'Location': 'http://localhost:3001'});
+              res.writeHead (301, {'Location': 'http://localhost:3000'});
               res.end();
             }
           }
