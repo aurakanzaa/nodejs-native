@@ -8,40 +8,78 @@
         <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="public/css/main.css">
+        <link rel="stylesheet" type="text/css" href="public/css/header.css">
+        <!-- link data table  -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+        <link rel="import" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
         <title>This is read from json</title>
     </head>
     <body>
+      <!-- HEADER -->
+      <div class="header">
+        <a href="#default" class="logo">CompanyLogo</a>
+        <div class="header-right">
+          <a class="active" href="/">Home</a>
+          <a href="/csv">Csv</a>
+          <a href="/login">Login</a>
+        </div>
+      </div>
+      <!-- HEADER END -->
+
+      <!-- CONTENT -->
+      <div style="padding-left:20px">
+        <h1 style="text-align: center;">Responsive Header</h1>
+        
         <div class="container-fluid">
           <div style="margin-top:1%;margin-bottom:1%">
             <a href="/insert" class="btn btn-insert"><i class="fa fa-plus" aria-hidden="true"></i> Tambah Data</a>
           </div>
-          <table>
-            <tr>
-              <th>No</th>
-              <th>Code</th>
-              <th>Name</th>
-              <th>Instantion</th>
-              <th>Telephone</th>
-              <th>Email</th>
-              <th>Option</th>
-            </tr>
-            <% rows.forEach((item) => {  %>
-            <tr>
-              <td><%= item.no %></td>
-              <td><%= item.code %></td>
-              <td><%= item.nama %></td>
-              <td><%= item.instansi %></td>
-              <td><%= item.telp %></td>
-              <td><%= item.email %></td>
-              <td>
-                  <a href="/edit/<%= item.no %>" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
-                  <a href="/remove/<%= item.no %>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this item?');"><i class="fa fa-trash"></i></a>
-              </td>
-            </tr>
-            <% }); %>
+
+          <!-- DATA TABLE -->
+          <table class="table" id="dataTable">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Instantion</th>
+                <th>Telephone</th>
+                <th>Email</th>
+                <th>Option</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% rows.forEach((item) => {  %>
+              <tr>
+                <td><%= item.no %></td>
+                <td><%= item.code %></td>
+                <td><%= item.nama %></td>
+                <td><%= item.instansi %></td>
+                <td><%= item.telp %></td>
+                <td><%= item.email %></td>
+                <td>
+                    <a href="/edit/<%= item.no %>" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
+                    <a href="/remove/<%= item.no %>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this item?');"><i class="fa fa-trash"></i></a>
+                </td>
+              </tr>
+              <% }); %>
+            </tbody>
           </table>
+          <!-- DATA TABLE END -->
         </div>
+      </div>
+      <!-- CONTENT END -->
+      <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+      <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+      <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
     </body>
 </html>
 <script>
+
+$(document).ready(function() {
+  $('#dataTable').DataTable();
+} );
+
+  
 </script>
+

@@ -58,6 +58,47 @@ const server = http.createServer((req, res) => {
         });
       }
     });
+  } else if (url === "/login"){
+    fs.readFile("./views/login.html", "utf-8", (error, data) => {
+      if (error){
+        res.writeHead(404);
+        res.write("Whoops! File not found!");
+      } 
+      res.writeHead(200);
+      res.end(data);
+    });
+  } else if (url_split[1] === "action_page") {
+    fs.readFile("./views/login.html", null, function(error, data) {
+      if (error) {
+        res.writeHead(404);
+        res.write("Whoops! File not found!");
+        res.end();
+      } else {
+        if (req.method === "POST") {
+          collectRequestData(req, result => {
+            console.log(result);
+            let query = `SELECT username, password FROM login WHERE username = '${result.username}' AND password= '${result.password}'`;
+            db.get(query, url_split[2], function(err, result) {
+              if (err) {
+                console.log(err);
+                console.log(query);
+              } else {
+                if(result.username == result.username && result.password == result.password){
+                  // res.write("benar");
+                  res.writeHead(301, { Location: "http://0.0.0.0:3000" });
+                } else {
+                  // res.write("salah");
+                  res.writeHead(404);
+                }
+                // res.writeHead(301, { Location: "http://0.0.0.0:3000" });
+                res.end();
+              }
+            });
+          });
+        }
+      }
+      // res.end();
+    });
   } else if (url === "/insert") {
     fs.readFile("./views/insert.html", "utf-8", (error, data) => {
       if (error) {
@@ -73,7 +114,7 @@ const server = http.createServer((req, res) => {
                 console.log(err);
                 console.log(result);
               } else {
-                res.writeHead (301, {'Location': 'http://222.165.222.78:3000'});
+                res.writeHead (301, {'Location': 'http://0.0.0.0:3000'});
                 res.end();
               }
             });
@@ -84,11 +125,12 @@ const server = http.createServer((req, res) => {
       }
       res.end();
     });
+  
   } else if (
-    url_split[1] === "edit" &&
-    url_split[2] !== "" &&
-    url_split[2] !== "public"
-  ) {
+      url_split[1] === "edit" &&
+      url_split[2] !== "" &&
+      url_split[2] !== "public"
+    ) {
     fs.readFile("./views/edit.html", null, function(error, data) {
       if (error) {
         res.writeHead(404);
@@ -135,7 +177,7 @@ const server = http.createServer((req, res) => {
                 console.log(err);
                 console.log(query);
               } else {
-                res.writeHead(301, { Location: "http://222.165.222.78:3000" });
+                res.writeHead(301, { Location: "http://0.0.0.0:3000" });
                 res.end();
               }
             });
@@ -154,13 +196,33 @@ const server = http.createServer((req, res) => {
             console.log(err);
             console.log(query);
           } else {
-            res.writeHead(301, { Location: "http://222.165.222.78:3000" });
+            res.writeHead(301, { Location: "http://0.0.0.0:3000" });
             res.end();
           }
         });
       });
     }
   } else if (url === "/public/css/main.css") {
+    fs.readFile(__dirname + req.url, function (err,data) {
+      if (err) {
+        res.writeHead(404);
+        res.end(JSON.stringify(err));
+        return;
+      }
+      res.writeHead(200);
+      res.end(data);
+    });
+  } else if (url === "/public/css/login.css" ) {
+    fs.readFile(__dirname + req.url, function (err,data) {
+      if (err) {
+        res.writeHead(404);
+        res.end(JSON.stringify(err));
+        return;
+      }
+      res.writeHead(200);
+      res.end(data);
+    });
+  } else if (url === "/public/css/header.css") {
     fs.readFile(__dirname + req.url, function (err,data) {
       if (err) {
         res.writeHead(404);
@@ -178,7 +240,7 @@ const server = http.createServer((req, res) => {
 
 server.listen(PORT,HOST, function() {
   // console.log("Listening on port http://222.165.222.78:" + PORT);
-  console.log(`Magic happen on http://${HOST}:${PORT}`);
+  console.log(`Listening on port http://${HOST}:${PORT}`);
 });
 
 function collectRequestData(request, callback) {
